@@ -83,24 +83,5 @@ private:
 
 int main()
 {
-    int n; cin >> n;
-    SegmentTree<long long> s;
-    vector<long long> v(n);
-    for(int i = 0; i < n; i++){
-        long long t; cin >> t;
-        v[i] = t;
-    }
-    s.build(v);
 
-    int m; cin >> m;
-    for(int i = 0; i < m; i++){
-        char ch; cin >> ch;
-        if(ch == 'g'){
-            long long t; cin >> t;
-            cout << s.calculate(t - 1) << endl;
-        }else{
-            long long l, r, delta; cin >> l >> r >> delta;
-            s.update(l - 1, r - 1, delta);
-        }
-    }
 }
