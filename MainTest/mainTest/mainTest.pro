@@ -4,4 +4,8 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
+        doublelinkedlist.cpp \
         main.cpp
+
+HEADERS += \
+    doublelinkedlist.h
