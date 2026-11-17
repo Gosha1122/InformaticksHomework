@@ -142,17 +142,6 @@ private:
 };
 
 int main() {
-    // HeapMax heap;
 
-    // int n; cin >> n;
-    // for(int i = 0; i < n; i++){
-    //     int c; cin >> c;
-    //     if(c == 0){
-    //         int value; cin >> value;
-    //         heap.push(value);
-    //     }else{
-    //         cout << heap.pop() << endl;
-    //     }
-    // }
 
 }
