@@ -6,19 +6,27 @@ class Stack
 private:
     struct Node
     {
-        double value;
+        int value;
         Node* last = nullptr;
     };
 
     Node* start = nullptr;
 
+    void insertNumner(int val);
+
 public:
-    bool IsEmpty();
-    void Push(double value);
-    double Pop();
-    int Size();
-    void Clear();
-    double Front();
+    bool isEmpty();
+    void push(int value);
+    int pop();
+    int size();
+    void clear();
+    int top();
+
+    void sorted();
+    void print();
+
+    Stack(Stack& st);
+    Stack(){}
 };
 
 

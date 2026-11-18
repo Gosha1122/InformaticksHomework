@@ -1,32 +1,48 @@
 #include "stack.h"
+#include <iostream>
 
-bool Stack::IsEmpty()
+void Stack::insertNumner(int val)
+{
+    if(this->isEmpty()){
+        this->push(val);
+        return;
+    }
+    if(this->top() > val){
+        int t = this->pop();
+        insertNumner(val);
+        this->push(t);
+    }else{
+        this->push(val);
+    }
+}
+
+bool Stack::isEmpty()
 {
     if (start == nullptr) return true;
     return false;
 }
 
-void Stack::Push(double value)
+void Stack::push(int value)
 {
     Node* newNode = new Node{ value, start };
     start = newNode;
 }
 
-double Stack::Pop()
+int Stack::pop()
 {
-    if(!IsEmpty()){
+    if(!isEmpty()){
         Node* firstNode = start;
         start = firstNode->last;
-        double value = firstNode->value;
+        int value = firstNode->value;
         delete firstNode;
         return value;
     }
     return -1.0;
 }
 
-int Stack::Size()
+int Stack::size()
 {
-    if(!IsEmpty()){
+    if(!isEmpty()){
         Node* next = start;
         int size = 0;
         while (next != nullptr)
@@ -39,16 +55,40 @@ int Stack::Size()
     return 0;
 }
 
-void Stack::Clear()
+void Stack::clear()
 {
-    for(int i = Size(); i > 0; i--){
-        Pop();
+    for(int i = size(); i > 0; i--){
+        pop();
     }
 }
 
-double Stack::Front()
+int Stack::top()
 {
-    double v = Pop();
-    Push(v);
+    int v = pop();
+    push(v);
     return v;
 }
+
+void Stack::sorted()
+{
+    Stack stack_t;
+    for(int _ = 0; !this->isEmpty(); ){
+        stack_t.insertNumner(this->pop());
+    }
+    this->start = stack_t.start;
+}
+
+void Stack::print()
+{
+    if(this->isEmpty()) return;
+    int t = this->pop();
+    std::cout << t << " ";
+    print();
+    this->push(t);
+}
+
+Stack::Stack(Stack &st)
+{
+    start = st.start;
+}
+
